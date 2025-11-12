@@ -39,11 +39,10 @@ export const createBusiness = async (req, res) => {
     res.json({ success: true });
 
   } catch (err) {
-    console.error(err); // log the actual error
+    console.error(err);
     res.status(500).json({ message: "Business creation error", error: err.message });
   }
 };
-
 export const searchAll = async (req, res) => {
   const businesses = await Business.find({}).limit(10);
   console.log("tis");

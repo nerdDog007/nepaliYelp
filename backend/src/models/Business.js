@@ -7,14 +7,43 @@ const BusinessSchema = new mongoose.Schema({
   phone: String,
 
   locationName: { type: String },
-  coordinates: { lat: Number, lng: Number },
+  coordinates: { latitude: Number, longitude: Number },
 
   url: { type: [String], default: [] },
   
   features: { type: [String], default: [] },
 
   priceRange: { type: Number, min: 1, max: 4 },
-
+  hours:{
+    monday:{
+      open:String,
+      close:String,
+    },
+    tuesday:{
+      open:String,
+      close:String,
+    },  
+    wednesday:{
+      open:String,
+      close:String, 
+    }
+    }, 
+   thursday:{
+    open:String,
+    close:String,
+    } ,
+   friday:{
+    open:String,
+    close:String,
+    } , 
+   saturday:{
+    open:String,
+    close:String,
+    }	,
+   sunday:{
+    open:String,
+    close:String,
+  },
   reviews: [
     {
       userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },

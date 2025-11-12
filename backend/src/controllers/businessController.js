@@ -4,10 +4,11 @@ import User from "../models/User.js";
 
 export const createBusiness = async (req, res) => {
   try {
-    const { businessName, location, locationName, userId } = req.body;
+    const { businessName, location, locationName, userId,description } = req.body;
 
     const parsedLocation = JSON.parse(location);
-    console.log("this.com");
+   console.log(parsedLocation);
+   
 
     const urls = [];
 
@@ -33,8 +34,8 @@ export const createBusiness = async (req, res) => {
       url: urls,
       userId,
       locationName,
+      description
     });
-
     res.json({ success: true });
 
   } catch (err) {

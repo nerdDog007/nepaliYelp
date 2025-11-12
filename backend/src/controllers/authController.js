@@ -42,10 +42,23 @@ export const login = async (req, res) => {
   if (!matched) return res.json({ success: false, message: "Wrong password" });
 
   const token = jwt.sign({ email }, process.env.JWT_SECRET);
-
+  console.log(matched);
+  
   res.json({
     success: true,
     token,
     user: { email: user.email, user_id: user._id, fullName: user.name }
   });
 };
+
+export const checkEmail =async (req,res)=>{
+  const {email } = req.body
+  console.log(email);
+  
+  const user = await User.findOne({email})
+  if(user){
+      res.json({hasAccount:true})
+      return
+  }
+  res.json({hasAccount:false})
+}

@@ -5,6 +5,7 @@ import { createBusiness, searchAll } from "../controllers/businessController.js"
 const router = express.Router();
 
 router.post("/create", upload.array("images"), createBusiness);
-router.get("/search", searchAll);
+router.get("/searchAll", searchAll);
+
 
 export default router;

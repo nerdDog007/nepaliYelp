@@ -5,12 +5,10 @@ const BusinessSchema = new mongoose.Schema({
   category: { type: String },
   description: { type: String, default: "" },
   phone: String,
-
+  shortDescription: { type: String, default: "" },
   locationName: { type: String },
   coordinates: { latitude: Number, longitude: Number },
-
   url: { type: [String], default: [] },
-  
   features: { type: [String], default: [] },
 
   priceRange: { type: Number, min: 1, max: 4 },

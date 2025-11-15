@@ -10,7 +10,6 @@ const BusinessSchema = new mongoose.Schema({
   coordinates: { latitude: Number, longitude: Number },
   url: { type: [String], default: [] },
   features: { type: [String], default: [] },
-
   priceRange: { type: Number, min: 1, max: 4 },
   hours:{
     monday:{
@@ -51,7 +50,6 @@ const BusinessSchema = new mongoose.Schema({
       createdAt: { type: Date, default: Date.now }
     }
   ],
-
   averageRating: { type: Number, default: 0 },
 
   userId: {
@@ -61,7 +59,6 @@ const BusinessSchema = new mongoose.Schema({
   },
 
   isActive: { type: Boolean, default: true },
-
   createdAt: { type: Date, default: Date.now }
 });
 

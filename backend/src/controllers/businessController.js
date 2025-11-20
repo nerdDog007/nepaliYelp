@@ -4,16 +4,14 @@ import User from "../models/User.js";
 
 export const createBusiness = async (req, res) => {
   try {
-    const { businessName, location, locationName, userId,description ,shortDescription} = req.body;
-
+    const { businessName, location, locationName,hours, userId,description ,shortDescription} = req.body;
+    console.log(hours);
+    const hoursF = JSON.parse(hours);
+    
     const parsedLocation = JSON.parse(location);
-   console.log(parsedLocation);
-   
-
     const urls = [];
 
     for (const file of req.files) {
-      // Wrap upload_stream properly
       const uploadResult = await new Promise((resolve, reject) => {
         const stream = cloudinary.uploader.upload_stream(
           { folder: "businesses" },
@@ -36,6 +34,7 @@ export const createBusiness = async (req, res) => {
       locationName,
       description,
       shortDescription,
+      hours:hoursF
     });
     res.json({ success: true });
 
@@ -44,6 +43,9 @@ export const createBusiness = async (req, res) => {
     res.status(500).json({ message: "Business creation error", error: err.message });
   }
 };
+
+
+
 export const searchAll = async (req, res) => {
   const businesses = await Business.find({}).limit(10);
   console.log("tis");

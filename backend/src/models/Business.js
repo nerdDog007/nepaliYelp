@@ -15,31 +15,39 @@ const BusinessSchema = new mongoose.Schema({
     monday:{
       open:String,
       close:String,
+      closed:Boolean
     },
     tuesday:{
       open:String,
       close:String,
+      closed:Boolean
     },  
     wednesday:{
       open:String,
-      close:String, 
+      close:String,
+      closed:Boolean 
+    },
+    thursday:{
+      open:String,
+      close:String,
+      closed:Boolean
+      },
+     friday:{
+      open:String,
+      close:String,
+      closed:Boolean
+      }, 
+     saturday:{
+      open:String,
+      close:String,
+      closed:Boolean
+      }	,
+     sunday:{
+      open:String,
+      close:String,
+      closed:Boolean
     }
-    }, 
-   thursday:{
-    open:String,
-    close:String,
-    } ,
-   friday:{
-    open:String,
-    close:String,
-    } , 
-   saturday:{
-    open:String,
-    close:String,
-    }	,
-   sunday:{
-    open:String,
-    close:String,
+   
   },
   reviews: [
     {
